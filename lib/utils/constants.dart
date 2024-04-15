@@ -149,18 +149,28 @@ class _Navigation {
             context.t.core.navigation.bottom.informations,
           ),
         ),
+        AppBar(
+          leading: IconButton(
+            onPressed: () => getIt<AuthCubit>().logOut(),
+            icon: Icon(MdiIcons.logout),
+          ),
+          title: Text(
+            context.t.core.navigation.bottom.features,
+          ),
+        ),
       ];
 
   /// Bottom navigation configuration.
   List<Widget> bottomNavigationScreens() => const [
         FeaturesScreen(),
         InformationsScreen(),
+        FeaturesScreen(),
       ];
 
   List<NavigationDestination> bottomNavigationItems(BuildContext context) => [
         NavigationDestination(
           icon: Icon(
-            MdiIcons.fire,
+            MdiIcons.home,
             size: 24,
           ),
           label: context.t.core.navigation.bottom.features,
@@ -168,6 +178,13 @@ class _Navigation {
         NavigationDestination(
           icon: Icon(
             MdiIcons.information,
+            size: 24,
+          ),
+          label: context.t.core.navigation.bottom.informations,
+        ),
+        NavigationDestination(
+          icon: Icon(
+            MdiIcons.fire,
             size: 24,
           ),
           label: context.t.core.navigation.bottom.informations,
